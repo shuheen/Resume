@@ -3,6 +3,8 @@ import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -24,6 +26,8 @@ import { NavbarComponent } from './navbar/navbar.component';
   imports: [
   
   BrowserModule,
+
+  MatButtonModule,
   RouterModule.forRoot(
       [
         {

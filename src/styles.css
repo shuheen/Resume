@@ -1,2 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'https://cdn.materialdesignicons.com/2.5.94/css/materialdesignicons.min.css';
+
+.bg-theme{
+    background: #3f51b5;
+}
+*{
+    font-family: 'Roboto' !important;
+}
+.font-weight-lighter{
+    font-weight: 100;
+}
