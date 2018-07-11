@@ -49,15 +49,15 @@
     </button>
   </div>
   <div class="side-nav-body">
-    <form #addTemplateForm="ngForm" (ngSubmit)="addTemplate(addTemplateForm.form.value)">
+    <form #addTemplateForm="ngForm" (ngSubmit)="saveTemplate(addTemplateForm.form.value, $event)">
       <!-- <input type="hidden" #hiddenKey name="hiddenKey" [(ngModel)]="thisKey"> -->
       <div class="form-group">
-        <label for="todoTitle">Template Name</label>
-        <input type="text" ngModel id="todoTitle" name="todoTitle" class="form-control" #todoTitle="ngModel" required>
+        <label for="templateName">Template Name</label>
+        <input type="text" ngModel id="templateName" name="templateName" class="form-control" #templateName="ngModel" required>
       </div>
       <div class="form-group">
         <label for="exampleFormControlFile1">Template Image</label>
-        <input type="file" ngModel #templateImage="ngModel" name="templateImage" class="form-control-file form-control" id="exampleFormControlFile1" required>
+        <input type="file" ngModel #templateImage="ngModel" (change)="saveTemplateImage($event)" name="templateImage" class="form-control-file form-control" id="exampleFormControlFile1" required>
       </div>
       <!-- <label for="todoTitle">Priority</label>
           <mat-select placeholder="Priority" [(ngModel)]="thisTodo.priority" id="todoPriority" name="todoPriority" #todoPriority="ngModel"

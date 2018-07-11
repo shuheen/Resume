@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TemplateService } from '../services/template.service';
+import { Template } from '../model/template';
 
 @Component({
   selector: 'app-template-manager',
@@ -6,19 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./template-manager.component.css']
 })
 export class TemplateManagerComponent implements OnInit {
-
-  constructor() { }
+  selectedFile: FileList;
+  templateModel: Template
+  constructor(private templateService: TemplateService) { }
 
   ngOnInit() {
   }
 
-
+  
   addTemplateSlide(){
     this._toggleSidebar();
   }
 
-  addTemplate(template){
-    console.log(template);
+  saveTemplateImage(event){
+    this.selectedFile = event.target.files[0];
+  }
+  saveTemplate(template, event){
+    let templateName = template.templateName;
+    this.templateService.saveTemplate(templateName, this.selectedFile, event);
+    this._toggleSidebar();
   }
 
   _showSide: boolean = false;
