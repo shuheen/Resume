@@ -78,3 +78,8 @@ body, html{
 	color: #888;
 	text-align: center;
 }
+.floated-button-circle{
+	position: fixed !important;
+	right: 20px;
+	bottom: 20px;
+}

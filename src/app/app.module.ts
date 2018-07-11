@@ -10,23 +10,31 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { BuilderComponent } from './builder/builder.component';
+import { ChooseTemplateComponent } from './choose-template/choose-template.component';
+import { AdminAreaComponent } from './admin-area/admin-area.component';
+import { TemplateManagerComponent } from './template-manager/template-manager.component';
+import { UserManagerComponent } from './user-manager/user-manager.component';
+
 
 import { AdminAuthGuardService } from './services/admin-auth-guard.service';
 import { UserService } from './services/user.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
-import { NavbarComponent } from './navbar/navbar.component';
+import { TemplateService } from './services/template.service';
+
+
 
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { BuilderComponent } from './builder/builder.component';
-import { ChooseTemplateComponent } from './choose-template/choose-template.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +44,14 @@ import { ChooseTemplateComponent } from './choose-template/choose-template.compo
     HomeComponent,
     NavbarComponent,
     BuilderComponent,
-    ChooseTemplateComponent
+    ChooseTemplateComponent,
+    AdminAreaComponent,
+    TemplateManagerComponent,
+    UserManagerComponent
   ],
   imports: [
-  BrowserModule,
+  
+BrowserModule,
   BrowserAnimationsModule,
   NoopAnimationsModule,
   FormsModule,
@@ -66,10 +78,19 @@ import { ChooseTemplateComponent } from './choose-template/choose-template.compo
           path: 'login', component: LoginComponent
         },
         {
-          path: 'choose-template', component: ChooseTemplateComponent
+          path: 'choose-template', component: ChooseTemplateComponent, canActivate:[AuthGuardService]
         },
         {
-          path: 'builder', component: BuilderComponent
+          path: 'builder', component: BuilderComponent, canActivate:[AuthGuardService]
+        },
+        {
+          path: 'admin-area', component: AdminAreaComponent, canActivate:[AuthGuardService, AdminAuthGuardService]
+        },
+        {
+          path: 'admin-area/template-manager', component: TemplateManagerComponent, canActivate:[AuthGuardService, AdminAuthGuardService]
+        },
+        {
+          path: 'admin-area/user-manager', component: UserManagerComponent, canActivate:[AuthGuardService, AdminAuthGuardService]
         }
       ]
     )
@@ -78,7 +99,8 @@ import { ChooseTemplateComponent } from './choose-template/choose-template.compo
     AdminAuthGuardService,
     AuthService,
     UserService,
-    AuthGuardService
+    AuthGuardService,
+    TemplateService
   ],
   bootstrap: [AppComponent]
 })

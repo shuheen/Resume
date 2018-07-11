@@ -14,7 +14,7 @@
 
         <ng-container *ngIf="appUser.isAdmin">
           <button routerLink="/my-profile" mat-menu-item>Profile</button>
-          <button routerLink="/manage-profile" mat-menu-item>Manage Profiles</button>
+          <button routerLink="../admin-area" mat-menu-item>Admin Area</button>
         </ng-container>
         <div class="dropdown-divider"></div>
         <button mat-menu-item (click)="logout()">Sign Out</button>

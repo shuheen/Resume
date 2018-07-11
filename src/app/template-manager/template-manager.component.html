@@ -1,0 +1,81 @@
+<section class="bg-grey section-pad">
+  <div class="container">
+    <div class="section-heading text-center">
+      <h2>Choose your Template</h2>
+      <!-- <p class="text-muted">Check out what you can do with <span class="font-weight-bold">DesignMyResume</span></p> -->
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="img-cont">
+          <div class="img-cont-overlay">
+            <div class="overlay-content text-center">
+              <h6 class="text-white ">Template Name</h6>
+              <button mat-button mat-raised-button class="choose-button" color="primary">Choose</button>
+            </div>
+          </div>
+          <img src="../../assets/img/templates/template1.jpg" class="img-fluid">
+        </div>
+      </div>
+      <div class="col">
+        <div class="img-cont">
+          <div class="img-cont-overlay">
+            <div class="overlay-content text-center">
+              <h6 class="text-white ">Template Name</h6>
+              <button mat-button mat-raised-button class="choose-button" color="primary">Choose</button>
+            </div>
+          </div>
+          <img src="../../assets/img/templates/template2.jpg" class="img-fluid">
+        </div>
+      </div>
+      <div class="col"></div>
+      <div class="col"></div>
+    </div>
+  </div>
+</section>
+
+
+
+<button mat-fab color="primary" (click)="addTemplateSlide()" class="floated-button-circle">
+  <i class="mdi mdi-plus mdi-24px"></i>
+</button>
+
+
+
+<div class="side-nav" [class.show]="_showSide">
+  <div class="side-nav-header"> Edit Todo
+    <button mat-icon-button color="basic" class="float-right close-side-nav" (click)="closeSideNav()">
+      <i class="mdi mdi-close"></i>
+    </button>
+  </div>
+  <div class="side-nav-body">
+    <form #addTemplateForm="ngForm" (ngSubmit)="addTemplate(addTemplateForm.form.value)">
+      <!-- <input type="hidden" #hiddenKey name="hiddenKey" [(ngModel)]="thisKey"> -->
+      <div class="form-group">
+        <label for="todoTitle">Template Name</label>
+        <input type="text" ngModel id="todoTitle" name="todoTitle" class="form-control" #todoTitle="ngModel" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Template Image</label>
+        <input type="file" ngModel #templateImage="ngModel" name="templateImage" class="form-control-file form-control" id="exampleFormControlFile1" required>
+      </div>
+      <!-- <label for="todoTitle">Priority</label>
+          <mat-select placeholder="Priority" [(ngModel)]="thisTodo.priority" id="todoPriority" name="todoPriority" #todoPriority="ngModel"
+            required>
+            <mat-option value="High">
+              High
+            </mat-option>
+            <mat-option value="Medium">
+              Medium
+            </mat-option>
+            <mat-option value="Low">
+              Low
+            </mat-option>
+          </mat-select> -->
+
+
+      <button mat-button mat-raised-button color="primary">Save</button>
+    </form>
+  </div>
+  <!-- <div>Title: {{thisTodo.title}}</div> -->
+</div>
