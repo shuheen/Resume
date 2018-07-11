@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import * as firebase from 'firebase';
+import { AngularFireAuthModule  } from 'angularfire2/auth';
+import { AuthService } from './../services/auth.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
-  constructor() { }
+  constructor(private auth: AuthService) {
+    
+  }
 
-  ngOnInit() {
+
+  register(user){
+    let email = user.email;
+    let password = user.password;
+    let displayName = user.name;
+    this.auth.register(email, password, displayName)
   }
 
 }

@@ -1,8 +1,26 @@
 <div class="fixed-top d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-theme box-shadow">
   <h5 class="my-0 mr-md-auto font-weight-bolder text-white">DesignMyResume</h5>
   <nav class="my-2 my-md-0 mr-md-3">
-    <button mat-button class="text-white mat-button">Login</button>
-   
+    <ng-template #anonymousUser>
+      <button routerLink="login" mat-button class="text-white mat-button">Login</button>
+    </ng-template>
+    <button routerLink="/" mat-button mat-button-raised class="text-white active">Home</button>
+    <ng-container *ngIf="appUser; else anonymousUser">
+      <button routerLink="../choose-template" mat-button mat-button-raised class="text-white">Go to Builder</button>
+      <button mat-button [matMenuTriggerFor]="menu" color="basic" class="text-white">{{appUser.displayName}}&nbsp;
+        <i class="mdi mdi-menu-down"></i>
+      </button>
+      <mat-menu #menu="matMenu">
+
+        <ng-container *ngIf="appUser.isAdmin">
+          <button routerLink="/my-profile" mat-menu-item>Profile</button>
+          <button routerLink="/manage-profile" mat-menu-item>Manage Profiles</button>
+        </ng-container>
+        <div class="dropdown-divider"></div>
+        <button mat-menu-item (click)="logout()">Sign Out</button>
+      </mat-menu>
+    </ng-container>
+
   </nav>
   <!-- <a class="btn btn-outline-primary" href="#">Sign up</a> -->
 </div>

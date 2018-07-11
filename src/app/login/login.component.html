@@ -1,3 +1,56 @@
-<p>
-  login works!
-</p>
+<section class="h-100 my-login-page bg-theme">
+	<div class="container h-100">
+		<div class="row justify-content-md-center h-100">
+			<div class="card-wrapper">
+
+				<div class="card fat">
+					<div class="card-body">
+						<h4 class="card-title">Login</h4>
+						<form #loginForm="ngForm" (ngSubmit)="login(loginForm.form.value)">
+
+							<div class="form-group">
+								<label for="email">E-Mail Address</label>
+								<input id="email" type="email" class="form-control" name="email" ngModel #email="ngModel" required autofocus email>
+								<small *ngIf="email.touched && email.invalid" class="form-text text-danger">
+									<span *ngIf="email.errors.required">Email is Required</span>
+									<span *ngIf="email.errors.email">Invalid Email</span>
+								</small>
+							</div>
+
+							<div class="form-group">
+								<label for="password">Password
+									<!-- <a href="forgot.html" class="float-right">
+										Forgot Password?
+									</a> -->
+								</label>
+								<input id="password" type="password" class="form-control" name="password" #password="ngModel" ngModel required>
+								<small *ngIf="password.touched || password.dirty" class="form-text text-danger">
+									<span *ngIf="!password.valid">Password is Required</span>
+								</small>
+							</div>
+
+							<!-- <div class="form-group">
+									<label>
+										<input type="checkbox" name="remember"> Remember Me
+									</label>
+								</div> -->
+
+							<div class="form-group no-margin">
+								<button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-primary btn-block">
+									Login
+								</button>
+							</div>
+							<div class="margin-top20 text-center">
+								Don't have an account?
+								<a routerLink="../register">Create One</a>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="footer">
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
