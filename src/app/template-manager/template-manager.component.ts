@@ -9,10 +9,21 @@ import { Template } from '../model/template';
 })
 export class TemplateManagerComponent implements OnInit {
   selectedFile: FileList;
-  templateModel: Template
+  templateModel: Template;
+  templateList:Template[];
   constructor(private templateService: TemplateService) { }
 
   ngOnInit() {
+
+    var x = this.templateService.getTemplates();
+      x.snapshotChanges().subscribe(template => {
+        this.templateList = [];
+        template.forEach(element => {
+          var y = element.payload.toJSON();
+          y["$key"] = element.key;
+          this.templateList.push(y as Template);
+        });
+      });
   }
 
   
@@ -29,6 +40,7 @@ export class TemplateManagerComponent implements OnInit {
     this._toggleSidebar();
   }
 
+  
   _showSide: boolean = false;
 
   _toggleSidebar() {
@@ -37,6 +49,13 @@ export class TemplateManagerComponent implements OnInit {
 
   closeSideNav() {
     this._toggleSidebar();
+  }
+
+  deleteTemplate(key:string){
+    if (confirm('Are you sure you want to delete this template?') == true) {
+      this.templateService.deleteTemplate(key)
+    }
+    
   }
 
 }

@@ -1,14 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
 import { RouterModule, Routes } from '@angular/router';
 
-import {MatButtonModule} from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSelectModule} from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+
 
 
 import { AppComponent } from './app.component';
@@ -35,6 +36,7 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -50,23 +52,22 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     UserManagerComponent
   ],
   imports: [
-  
-BrowserModule,
-  BrowserAnimationsModule,
-  NoopAnimationsModule,
-  FormsModule,
-  CustomFormsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    FormsModule,
+    CustomFormsModule,
 
-  MatButtonModule,
-  MatMenuModule,
-  MatIconModule,
-  MatSelectModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    MatSelectModule,
 
-  AngularFireModule.initializeApp(environment.firebase),
-  AngularFireDatabaseModule,
-  AngularFireAuthModule,
-
-  RouterModule.forRoot(
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    ToastrModule.forRoot(),
+    RouterModule.forRoot(
       [
         {
           path: '', component: HomeComponent
@@ -78,19 +79,19 @@ BrowserModule,
           path: 'login', component: LoginComponent
         },
         {
-          path: 'choose-template', component: ChooseTemplateComponent, canActivate:[AuthGuardService]
+          path: 'choose-template', component: ChooseTemplateComponent, canActivate: [AuthGuardService]
         },
         {
-          path: 'builder', component: BuilderComponent, canActivate:[AuthGuardService]
+          path: 'builder', component: BuilderComponent, canActivate: [AuthGuardService]
         },
         {
-          path: 'admin-area', component: AdminAreaComponent, canActivate:[AuthGuardService, AdminAuthGuardService]
+          path: 'admin-area', component: AdminAreaComponent, canActivate: [AuthGuardService, AdminAuthGuardService]
         },
         {
-          path: 'admin-area/template-manager', component: TemplateManagerComponent, canActivate:[AuthGuardService, AdminAuthGuardService]
+          path: 'admin-area/template-manager', component: TemplateManagerComponent, canActivate: [AuthGuardService, AdminAuthGuardService]
         },
         {
-          path: 'admin-area/user-manager', component: UserManagerComponent, canActivate:[AuthGuardService, AdminAuthGuardService]
+          path: 'admin-area/user-manager', component: UserManagerComponent, canActivate: [AuthGuardService, AdminAuthGuardService]
         }
       ]
     )

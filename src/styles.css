@@ -83,3 +83,6 @@ body, html{
 	right: 20px;
 	bottom: 20px;
 }
+.bg-danger{
+    background-color: rgb(240, 49, 49)
+}

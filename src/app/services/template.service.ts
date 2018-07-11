@@ -50,7 +50,7 @@ export class TemplateService {
       uploadImage.snapshot.ref.getDownloadURL().then(function(downloadURL) {
         let url = downloadURL;
         firebase.database().ref('/templates').push({
-          name: selectedFile.name,
+          name: templateName,
           imageUrl: url
         });
         event.target.reset();
@@ -61,6 +61,15 @@ export class TemplateService {
     
 }
 
+
+
+getTemplates(){
+  return this.db.list('/templates');
+}
+
+deleteTemplate(key){
+  this.db.object('/templates/'+key).remove();
+}
 
 // saveTemplateToDatabase(filename, imageUrl){
 //   var dbRef = firebase.storage.ref("/templates/"+ name )
