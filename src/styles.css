@@ -23,6 +23,9 @@ body, html{
 .top-padding{
 	padding-top: 100px;
 }
+.bottom-padding{
+	padding-bottom: 60px;
+}
 .my-login-page .brand {
 	width: 90px;
 	height: 90px;

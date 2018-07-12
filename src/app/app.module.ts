@@ -37,6 +37,8 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ToastrModule } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 
 @NgModule({
@@ -69,6 +71,7 @@ import { WorkExperienceComponent } from './work-experience/work-experience.compo
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     ToastrModule.forRoot(),
+    NgbModule.forRoot(),
     RouterModule.forRoot(
       [
         {
