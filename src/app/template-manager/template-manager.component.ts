@@ -14,7 +14,6 @@ export class TemplateManagerComponent implements OnInit {
   constructor(private templateService: TemplateService) { }
 
   ngOnInit() {
-
     var x = this.templateService.getTemplates();
       x.snapshotChanges().subscribe(template => {
         this.templateList = [];

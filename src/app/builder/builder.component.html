@@ -1,3 +1,55 @@
-<p>
-  builder works!
-</p>
+<div class="container">
+  <div class="row top-padding">
+    <div class="col">
+      <h4 class="mb-3">Basic Information</h4>
+      <form class="needs-validation" #formBasicInfo="ngForm" (ngSubmit)="saveBasicInfo(formBasicInfo.form.value)">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstName" ngModel #firstName="ngModel" name="firstName" placeholder="" value="" required="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="" ngModel #lastName="ngModel" name="lastName" value="" required="">
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" ngModel #email="ngModel" name="email" placeholder="" value="" required="">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" id="phone" placeholder="" ngModel #phone="ngModel" name="phone" value="" required="">
+            <small>If you have more than one number, separate with commas</small>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="address">Full Address</label>
+            <input type="text" class="form-control" id="address" ngModel #fulladdress="ngModel" name="fulladdress" placeholder="1234 Main St" required="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="row">
+              <div class="col-2"><img [src]="url ? url : '../../assets/img/dummy.png'" width="70" height="70"></div>
+              <div class="col">
+                  <label>Upload your Profile Picture (Supported Format: jpeg, jpg, png)</label>
+                  <input class="file-upload-input" #inputFile type='file' (change)="readUrl($event);" accept="image/*" />
+                  <button class="" mat-button mat-raised-button color="primary" type="button" (click)="inputFile.click()">Add Image</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <hr class="mb-4">
+        <button mat-button mat-raised-button color="primary" type="submit">Save and Next</button>
+      </form>
+    </div>
+  </div>
+</div>

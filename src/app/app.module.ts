@@ -37,6 +37,7 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ToastrModule } from 'ngx-toastr';
+import { WorkExperienceComponent } from './work-experience/work-experience.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ToastrModule } from 'ngx-toastr';
     ChooseTemplateComponent,
     AdminAreaComponent,
     TemplateManagerComponent,
-    UserManagerComponent
+    UserManagerComponent,
+    WorkExperienceComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,10 @@ import { ToastrModule } from 'ngx-toastr';
           path: 'choose-template', component: ChooseTemplateComponent, canActivate: [AuthGuardService]
         },
         {
-          path: 'builder', component: BuilderComponent, canActivate: [AuthGuardService]
+          path: 'goToBuilder', component: BuilderComponent, canActivate: [AuthGuardService]
+        },
+        {
+          path: 'workexp', component: WorkExperienceComponent, canActivate: [AuthGuardService]
         },
         {
           path: 'admin-area', component: AdminAreaComponent, canActivate: [AuthGuardService, AdminAuthGuardService]

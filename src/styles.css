@@ -20,7 +20,9 @@ body, html{
     outline: none;
     border: 0;
 }
-
+.top-padding{
+	padding-top: 100px;
+}
 .my-login-page .brand {
 	width: 90px;
 	height: 90px;

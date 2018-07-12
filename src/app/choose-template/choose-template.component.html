@@ -6,31 +6,17 @@
       <hr>
     </div>
     <div class="row">
-
-      <div class="col">
+      <div class="col-3" *ngFor="let template of templateList">
         <div class="img-cont">
           <div class="img-cont-overlay">
             <div class="overlay-content text-center">
-              <h6 class="text-white ">Template Name</h6>
-              <button mat-button mat-raised-button class="choose-button" color="primary">Choose</button>
-            </div>  
+              <h6 class="text-white ">{{template.name}}</h6>
+              <button mat-button mat-raised-button class="choose-button text-white" color="primary" routerLink="../goToBuilder">Choose</button>
+            </div>
           </div>
-          <img src="../../assets/img/templates/template1.jpg" class="img-fluid">
+          <img src="{{template.imageUrl}}" class="img-fluid">
         </div>
       </div>
-      <div class="col">
-          <div class="img-cont">
-              <div class="img-cont-overlay">
-                <div class="overlay-content text-center">
-                  <h6 class="text-white ">Template Name</h6>
-                  <button mat-button mat-raised-button class="choose-button" color="primary">Choose</button>
-                </div>  
-              </div>
-              <img src="../../assets/img/templates/template2.jpg" class="img-fluid">
-            </div>
-      </div>
-      <div class="col"></div>
-      <div class="col"></div>
     </div>
   </div>
 </section>
