@@ -22,6 +22,10 @@ import { ChooseTemplateComponent } from './choose-template/choose-template.compo
 import { AdminAreaComponent } from './admin-area/admin-area.component';
 import { TemplateManagerComponent } from './template-manager/template-manager.component';
 import { UserManagerComponent } from './user-manager/user-manager.component';
+import { WorkExperienceComponent } from './work-experience/work-experience.component';
+import { SkillsComponent } from './skills/skills.component';
+import { QualificationComponent } from './qualification/qualification.component';
+
 
 
 import { AdminAuthGuardService } from './services/admin-auth-guard.service';
@@ -38,8 +42,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PreviewComponent } from './preview/preview.component';
 
-import { WorkExperienceComponent } from './work-experience/work-experience.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,10 @@ import { WorkExperienceComponent } from './work-experience/work-experience.compo
     AdminAreaComponent,
     TemplateManagerComponent,
     UserManagerComponent,
-    WorkExperienceComponent
+    WorkExperienceComponent,
+    SkillsComponent,
+    QualificationComponent,
+    PreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +98,15 @@ import { WorkExperienceComponent } from './work-experience/work-experience.compo
         },
         {
           path: 'workexp', component: WorkExperienceComponent, canActivate: [AuthGuardService]
+        },
+        {
+          path: 'skills', component: SkillsComponent, canActivate: [AuthGuardService]
+        },
+        {
+          path: 'qualification', component: QualificationComponent, canActivate: [AuthGuardService]
+        },
+        {
+          path: 'preview', component: PreviewComponent, canActivate: [AuthGuardService]
         },
         {
           path: 'admin-area', component: AdminAreaComponent, canActivate: [AuthGuardService, AdminAuthGuardService]

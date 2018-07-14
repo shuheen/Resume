@@ -3,11 +3,15 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 @import 'https://cdn.materialdesignicons.com/2.5.94/css/materialdesignicons.min.css';
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import "https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700";
 body, html{
     height: 100%;
 }
 .bg-theme{
     background: #3f51b5;
+}
+.bg-grey{
+	background-color: #ccc;
 }
 *{
     font-family: 'Roboto' !important;
@@ -90,4 +94,7 @@ body, html{
 }
 .bg-danger{
     background-color: rgb(240, 49, 49)
+}
+label{
+	margin-bottom: 0;
 }

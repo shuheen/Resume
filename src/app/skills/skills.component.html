@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row top-padding bottom-padding">
+    <h4 class="mb-3">Mention your Skills or Software you are proficient in.</h4>
+    <form #skillForm="ngForm" class="d-block" (ngSubmit)="saveSkills(skillForm.form.value)" style="width:100%">
+      <div *ngFor="let skill of skillInit; let i=index" ngModelGroup="skill{{i+1}}">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="skillName{{i+1}}">Mention a Skill</label>
+            <input required type="text" class="form-control" id="skillName{{i+1}}" [(ngModel)]="skill.skillName" name="skillName" placeholder="" value="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="skillRating{{i+1}}">How Proficient you are in this skill?</label>
+            <select required class="form-control" id="skillRating{{i+1}}" [(ngModel)]="skill.skillRating" name="skillRating">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button mat-raised-button class="bg-grey mt-5" type="button" (click)="back()" >Back</button>&nbsp; &nbsp;
+      <button mat-raised-button color="accent" class="mt-5" type="button" (click)="addMoreSkill()">Add More</button>&nbsp; &nbsp;
+      <button mat-raised-button color="primary" class="mt-5">Save and Next</button>
+    </form>
+   
+  </div>
+</div>

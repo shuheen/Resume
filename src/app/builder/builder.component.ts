@@ -12,9 +12,17 @@ export class BuilderComponent implements OnInit {
   selectFileName;
   url;
   basicInfoObject;
+  localItem;
   constructor(private resumeService: ResumeService, private router: Router) { }
 
   ngOnInit() {
+    this.localItem  = localStorage.getItem('basicInfo') ? JSON.parse(localStorage.getItem('basicInfo')) : {};
+    if(this.localItem.url)
+      this.url = this.localItem.url;
+    else
+      this.url = "../../assets/img/dummy.png";
+     // console.log(this.localItem)
+      
   }
 
   readUrl(event:any) {
@@ -33,16 +41,20 @@ export class BuilderComponent implements OnInit {
 
   saveBasicInfo(basicInfo){
     this.basicInfoObject = {
-      "basicInfo":{
         firstName: basicInfo.firstName,
         lastName: basicInfo.lastName,
         email: basicInfo.email,
         phone: basicInfo.phone,
         address: basicInfo.fulladdress,
-        url: this.url
-      }
+        url: this.url,
+        jobTitle: basicInfo.jobTitle,
+        about: basicInfo.about
     }
-    this.router.navigate(['../workexp'])
+
+    if(localStorage.getItem('basicInfo'))
+      localStorage.removeItem('basicInfo')
+      localStorage.setItem('basicInfo', JSON.stringify(this.basicInfoObject));
+      this.router.navigate(['../workexp']/*, { skipLocationChange: true }*/);
     // this.resumeService.saveBasicInfo(basicInfo, this.url);
   }
 

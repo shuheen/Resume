@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row top-padding bottom-padding">
+      <h4 class="mb-3">Mention your Work Experience &nbsp; &nbsp;</h4> 
+      <form #qualificationForm="ngForm" (ngSubmit)="saveQualification(qualificationForm.form.value)">
+        <div class="ngModelGroup" *ngFor="let obj of objInit; let i=index" ngModelGroup="Qualification{{i+1}}">
+          
+          <!-- <input type="text" placeholder="Name" ngModel name="name{{i+1}}">
+          <input type="text" name="email{{i+1}}" ngModel placeholder="email"> -->
+          <ngb-accordion [closeOthers]="true" class="d-block" style="width: 100%;">
+  
+              <ngb-panel id="static-{{in}}">
+                <ng-template ngbPanelTitle>
+                    <!-- <span *ngIf="jobTitle+in">{{jobTitle}}</span> -->
+                    <span>Qualification {{i+1}}</span>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                  <div>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="course{{i+1}}">Course Name</label>
+                        <input required type="text" class="form-control" id="course{{i+1}}" [(ngModel)]="obj.course" name="course"
+                          placeholder="">
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="institution{{i+1}}">Institution Name</label>
+                        <input required type="text" class="form-control" id="institution{{i+1}}" placeholder="" [(ngModel)]="obj.institution" name="institution">
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="startDate{{i+1}}">Start Date</label>
+                        <input required type="text" class="form-control" id="startDate{{i+1}}" [(ngModel)]="obj.startDate" name="startDate" placeholder="">
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="endDate{{i+1}}">End Date</label>
+                        <input required type="text" class="form-control" id="endDate{{i+1}}" placeholder="" [(ngModel)]="obj.endDate" name="endDate">
+                      </div>
+                    </div>
+      
+                    <div class="row">
+                      <div class="col-md-12">
+                        <label for="information{{i+1}}">Other Information</label>
+                        <textarea required class="form-control" id="information{{i+1}}" placeholder="Give other additional Information (If any)" [(ngModel)]="obj.information" name="information"
+                          style="height: 100px;"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </ngb-panel>
+            </ngb-accordion>
+        </div>
+        <button mat-raised-button class="bg-grey mt-5" (click)="back()" >Back</button>&nbsp; &nbsp;
+        <button mat-raised-button color="accent" class="mt-5" type="button" (click)="addMoreExp()">Add More</button>&nbsp; &nbsp;
+        <button mat-raised-button color="primary" class="mt-5">Save and Next</button>
+  
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row top-padding bottom-padding">
+      <!-- <button (click)="pdfHtml()">pdf</button>
+      <button (click)="download()">download</button> -->
+    <div class="preview--container" #test>
+      <div class="left-sidebar">
+        <div *ngIf="imageExist" class="image-container">
+          <img [src]="basicInfoJson.url">
+        </div>
+        <h6 class="text-white pl-3 text-uppercase">About Me</h6>
+        <p class="text-white pl-3 pr-3 about-text">{{basicInfoJson.about}}</p>
+      </div>
+      <div class="right-sidebar">
+        <div class="right-sidebar-head">
+          <div class="nameandtitle">
+            <div class="firstname">{{basicInfoJson.firstName}} {{basicInfoJson.lastName}}</div>
+            <div class="lastname"></div>
+            <p class="text-uppercase job-title">{{basicInfoJson.jobTitle}}</p>
+          </div>
+          <div class="contact-info-head">
+            <p class="contact-p">mail.shuaibkhan@gmail.com</p>
+            <p class="contact-p">+91-8826772010</p>
+            <p class="contact-p">Krishan Kunj, Laxmi Nagar, Delhi</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
